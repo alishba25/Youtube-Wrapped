@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Wrapped</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="ambient" aria-hidden="true">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob blob-c"></div>
+</div>
+
+<main class="page">
+
+  <section class="hero">
+    <p class="eyebrow">Not affiliated with YouTube or Google</p>
+    <h1>Your year on YouTube,<br><span id="cycling-word" class="cycling">decoded.</span></h1>
+    <p class="hero-sub">Three ways in. Pick whichever matches how you use YouTube. None of them need more than a couple of clicks.</p>
+
+    <div class="persona-marquee" aria-hidden="true">
+      <div class="persona-track" id="persona-track"></div>
+    </div>
+  </section>
+
+  <section class="paths" id="paths-section">
+
+    <article class="path-card path-takeout">
+      <div class="path-top">
+        <span class="path-tag">Deepest data</span>
+        <h2>Takeout upload</h2>
+        <p>Upload your real watch history export. Full picture, including videos you watched years ago.</p>
+      </div>
+      <ul class="path-facts">
+        <li>Needs a short export from Google Takeout first</li>
+        <li>Most accurate persona + peak-hour reveal</li>
+      </ul>
+      <label class="path-action file-action">
+        <input type="file" id="takeout-file-input" accept="application/json" hidden>
+        <span>Upload watch-history.json</span>
+      </label>
+      <button class="link-btn" id="takeout-howto-btn" type="button">How do I get that file?</button>
+    </article>
+
+    <article class="path-card path-taste">
+      <div class="path-top">
+        <span class="path-tag">Instant</span>
+        <h2>Taste wrapped</h2>
+        <p>One click. We look at what you've liked and subscribed to. Lighter data, zero exporting.</p>
+      </div>
+      <ul class="path-facts">
+        <li>No file needed. Just sign in</li>
+        <li>Shallower than Takeout, but instant</li>
+      </ul>
+      <a class="path-action" href="/auth/login/taste">Sign in with Google</a>
+    </article>
+
+    <article class="path-card path-creator">
+      <div class="path-top">
+        <span class="path-tag">For channel owners</span>
+        <h2>Creator wrapped</h2>
+        <p>Got a YouTube channel? Pull real audience analytics. Views, watch time, your top videos.</p>
+      </div>
+      <ul class="path-facts">
+        <li>Requires a YouTube channel on the account</li>
+        <li>Last 90 days of channel performance</li>
+      </ul>
+      <a class="path-action" href="/auth/login/creator">Sign in with Google</a>
+    </article>
+
+  </section>
+
+  <section class="howto" id="howto-panel" hidden>
+    <button class="close-btn" id="howto-close" aria-label="Close instructions">×</button>
+    <h3>Getting your watch-history.json</h3>
+    <ol>
+      <li>Go to <a href="https://takeout.google.com" target="_blank" rel="noopener">takeout.google.com</a> while signed in to the account you watch YouTube with</li>
+      <li>Click "Deselect all", then check only <strong>YouTube and YouTube Music</strong></li>
+      <li>Click "All YouTube data included" → keep only <strong>history</strong> checked</li>
+      <li>Set the export format for history to <strong>JSON</strong> (not HTML)</li>
+      <li>Create the export, wait for Google's email, download and unzip it</li>
+      <li>Find <code>watch-history.json</code> inside the "history" folder and upload it here</li>
+    </ol>
+  </section>
+
+  <section class="status" id="status-panel" hidden>
+    <div class="spinner" aria-hidden="true"></div>
+    <p id="status-text">Working on it…</p>
+  </section>
+
+  <section class="results" id="results-section" hidden>
+    <div class="story-progress" id="story-progress"></div>
+    <div class="story-viewport">
+      <div class="story-tap story-tap-prev" id="story-tap-prev" aria-label="Previous"></div>
+      <div class="story-tap story-tap-next" id="story-tap-next" aria-label="Next"></div>
+      <div class="story-slide" id="story-slide"></div>
+    </div>
+    <p class="story-hint" id="story-hint">Tap to continue →</p>
+  </section>
+
+  <section class="error" id="error-panel" hidden>
+    <p id="error-text"></p>
+    <button class="link-btn" id="error-dismiss-btn">Try again</button>
+  </section>
+
+  <footer class="footer">
+    <p>Nothing you upload or sign in with is stored on a server after your session ends. This is an independent portfolio project.</p>
+  </footer>
+
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
