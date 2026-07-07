@@ -6,7 +6,7 @@ A "Spotify Wrapped"-style site for YouTube, with three ways in:
 - **Taste wrapped** — instant, one-click Google sign-in, built from liked videos + subscriptions
 - **Creator wrapped** — instant, for channel owners, built from real YouTube Analytics data
 
-Results are revealed as a tap/swipe-through slide story (à la Instagram Stories / Spotify Wrapped) rather than a static page — see `static/app.js`'s story engine and `app/personas.py`'s expanded, roast-flavored persona set.
+Results are revealed as a tap/swipe-through slide story (Instagram Stories / Spotify Wrapped) rather than a static page — see `static/app.js`'s story engine and `app/personas.py`'s expanded, roast-flavored persona set.
 
 Full write-up of *why* it's built this way (including the YouTube API's watch-history limitation that shaped the whole design) is in the chat history where this was designed — worth keeping for your own README/portfolio notes.
 
